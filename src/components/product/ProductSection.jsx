@@ -5,8 +5,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import HeaderSection from "./HeaderSection";
-import ProductCard from "./ProductCard";
+import HeaderSection from "../product/HeaderSection";
+import ProductCard from "../product/ProductCard";
 import { useState, useEffect } from "react";
 
 const ProductSection = ({
@@ -82,7 +82,7 @@ const ProductSection = ({
             <CarouselItem key={groupIndex}>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-1">
                 {group.map((product) => (
-                  <ProductCard product={product} key={product.id} />
+                  <ProductCard product={product} key={product.productId} />
                 ))}
               </div>
             </CarouselItem>

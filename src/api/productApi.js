@@ -6,7 +6,10 @@ export const productApi = {
     const response = await axios.get(`${API_BASE_URL}/v1/product-top-deals`);
     return response.data; // Tra du lieu luon
   },
-  getNewProduct: () => axios.get(`${API_BASE_URL}/v1/new-products`),
+  getNewProduct: async () => {
+    const response = await axios.get(`${API_BASE_URL}/v1/new-products`);
+    return response.data;
+  },
   getSmartPhoneAndTalet: async () => {
     const response = await axios.get(
       `${API_BASE_URL}/v1/products/category/dien-thoai-may-tinh-bang`
@@ -24,5 +27,21 @@ export const productApi = {
       `${API_BASE_URL}/v1/products/category/thiet-bi-am-thanh`
     );
     return response.data;
+  },
+  getAllProduct: async () => {
+    const response = await axios.get(`${API_BASE_URL}/v1/products`);
+    return response.data;
+  },
+  getAppleWatch: async () => {
+    const res = await axios.get(
+      `${API_BASE_URL}/v1/products/category/thiet-bi-deo-thong-minh`
+    );
+    return res.data;
+  },
+  getCamera: async () => {
+    const res = await axios.get(
+      `${API_BASE_URL}/v1/products/category/may-anh-may-quay`
+    );
+    return res.data;
   },
 };

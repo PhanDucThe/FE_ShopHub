@@ -6,103 +6,11 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import SellerSidebar from "@/components/common/SellerSidebar";
-import AddProduct from "../products/AddProduct";
 import MyProduct from "../products/MyProduct";
+import FormAddProduct from "../products/FormAddProduct";
 
 const SellerDashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
-
-  // Dữ liệu danh mục (categories)
-  const categoriesData = [
-    { id: 1, name: "Điện thoại di động" },
-    { id: 2, name: "Laptop" },
-    { id: 3, name: "Tai nghe" },
-    { id: 4, name: "Đồng hồ thông minh" },
-    { id: 5, name: "Phụ kiện điện tử" },
-  ];
-
-  // Dữ liệu thương hiệu (brands)
-  const brandsData = [
-    { id: 1, name: "Apple" },
-    { id: 2, name: "Samsung" },
-    { id: 3, name: "Xiaomi" },
-    { id: 4, name: "Oppo" },
-    { id: 5, name: "Sony" },
-    { id: 6, name: "Dell" },
-    { id: 7, name: "HP" },
-  ];
-
-  // Dữ liệu thuộc tính (attributes) và tùy chọn (options)
-  const attributesData = [
-    {
-      id: 1,
-      name: "Màu sắc",
-      options: [
-        { id: 1, value: "Đen" },
-        { id: 2, value: "Trắng" },
-        { id: 3, value: "Xanh navy" },
-        { id: 4, value: "Hồng" },
-        { id: 5, value: "Vàng gold" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Dung lượng",
-      options: [
-        { id: 6, value: "64GB" },
-        { id: 7, value: "128GB" },
-        { id: 8, value: "256GB" },
-        { id: 9, value: "512GB" },
-        { id: 10, value: "1TB" },
-      ],
-    },
-    {
-      id: 3,
-      name: "Kích thước",
-      options: [
-        { id: 11, value: "S" },
-        { id: 12, value: "M" },
-        { id: 13, value: "L" },
-        { id: 14, value: "XL" },
-      ],
-    },
-    {
-      id: 4,
-      name: "Loại kết nối",
-      options: [
-        { id: 15, value: "Bluetooth" },
-        { id: 16, value: "Có dây" },
-        { id: 17, value: "USB" },
-      ],
-    },
-  ];
-
-  // Dữ liệu thông số kỹ thuật (specifications)
-  const specificationsData = [
-    { id: 1, name: "Màn hình" },
-    { id: 2, name: "CPU" },
-    { id: 3, name: "RAM" },
-    { id: 4, name: "Hệ điều hành" },
-    { id: 5, name: "Pin" },
-    { id: 6, name: "Khối lượng" },
-    { id: 7, name: "Chống nước" },
-    { id: 8, name: "Kích thước" },
-    { id: 9, name: "Tần số đáp ứng" },
-    { id: 10, name: "Độ phân giải" },
-  ];
-
-  // Dữ liệu hình ảnh mẫu (có thể dùng cho variant images)
-  const sampleImageUrls = [
-    "https://example.com/images/product1.jpg",
-    "https://example.com/images/product2.jpg",
-    "https://example.com/images/product3.jpg",
-    "https://example.com/images/product4.jpg",
-  ];
-
-  const handleSubmit = () => {
-    console.log("Duc Teh");
-  };
-
   return (
     <div className="min-h-screen bg-gray-50/50">
       {/* Header */}
@@ -281,15 +189,7 @@ const SellerDashboard = () => {
             </div>
           )}
 
-          {activeTab === "add-product" && (
-            <AddProduct
-              categories={categoriesData}
-              brands={brandsData}
-              attributes={attributesData}
-              specifications={specificationsData}
-              onSubmit={handleSubmit}
-            />
-          )}
+          {activeTab === "add-product" && <FormAddProduct />}
 
           {activeTab === "product-list" && <MyProduct />}
 

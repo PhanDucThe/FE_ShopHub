@@ -4,6 +4,9 @@ import NotFoundPage from "./pages/error/NotFoundPage";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import SellerDashboard from "./pages/seller/dashboard/SellerDashboard";
+import LaptopDetail from "./pages/customer/product_detail/LaptopDetail";
+import PhoneDetail from "./pages/customer/product_detail/PhoneDetail";
+import SmartWatchDetail from "./pages/customer/product_detail/SmartWatchDetail";
 
 function App() {
   return (
@@ -13,6 +16,7 @@ function App() {
         <Route path="/dang-nhap" element={<Login />}></Route>
         <Route path="/dang-ky" element={<Register />}></Route>
         <Route path="/nguoi-ban" element={<SellerDashboard />}></Route>
+        <Route path="/chi-tiet-lap-top" element={<SmartWatchDetail />}></Route>
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
     </>
