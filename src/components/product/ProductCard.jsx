@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router";
 import {
   faStar,
   faStarHalfAlt,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import formatPrice from "../../utils/formatPrice";
+import toSlug from "@/utils/toSlug";
 
 const ProductCard = ({ product }) => {
+  let navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
 
   const toggleFavorite = (e) => {
@@ -15,8 +18,27 @@ const ProductCard = ({ product }) => {
     setIsFavorite(!isFavorite);
   };
 
+  // chuyen qua trang chi tiet san pham
+  const handleClick = (product) => {
+    if (product.categoryName === "Điện thoại") {
+      const valueStorage = toSlug(product?.option.Storage);
+      const valueColor = toSlug(product?.option.Color);
+      navigate(
+        `/iphone-detail/${product?.productSlug}?storage=${valueStorage}&color=${valueColor}`
+      );
+    } else if (product.categoryName === "Đồng hồ") {
+      navigate("/smart-watch-detai");
+    } else if (product.categoryName === "Laptop") {
+      navigate("/laptop-detail");
+    } else {
+      navigate("/tivi-detail");
+    }
+  };
   return (
-    <div className="group relative bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer hover:cursor-grab active:cursor-grabbing">
+    <div
+      className="group relative bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer hover:cursor-grab active:cursor-grabbing"
+      onClick={() => handleClick(product)}
+    >
       {/* Tag giảm giá */}
       <div className="absolute top-3 left-3 z-20">
         <div className="relative">
@@ -43,8 +65,8 @@ const ProductCard = ({ product }) => {
       {/* Ảnh sản phẩm */}
       <div className="aspect-square overflow-hidden rounded-t-lg">
         <img
-          src={product["productImagesMain"]}
-          alt={product["productName"]}
+          src={product?.image}
+          alt={product?.productName}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
