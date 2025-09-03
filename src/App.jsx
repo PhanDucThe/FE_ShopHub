@@ -8,6 +8,7 @@ import LaptopDetail from "./pages/customer/product_detail/LaptopDetail";
 import PhoneDetail from "./pages/customer/product_detail/PhoneDetail";
 import SmartWatchDetail from "./pages/customer/product_detail/SmartWatchDetail";
 import TvDetail from "./pages/customer/product_detail/TvDetail";
+import CartPage from "./pages/customer/cart/CartPage";
 
 function App() {
   return (
@@ -18,9 +19,13 @@ function App() {
         <Route path="/dang-ky" element={<Register />}></Route>
         <Route path="/nguoi-ban" element={<SellerDashboard />}></Route>
         <Route path="/iphone-detail/:slug" element={<PhoneDetail />}></Route>
-        <Route path="/laptop-detail" element={<LaptopDetail />}></Route>
-        <Route path="/smart-watch-detai" element={<SmartWatchDetail />}></Route>
-        <Route path="/tivi-detail" element={<TvDetail />}></Route>
+        <Route path="/laptop-detail/:slug" element={<LaptopDetail />}></Route>
+        <Route
+          path="/smart-watch-detai/:slug"
+          element={<SmartWatchDetail />}
+        ></Route>
+        <Route path="cart-detail" element={<CartPage />}></Route>
+        <Route path="/tivi-detail/:slug" element={<TvDetail />}></Route>
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
     </>

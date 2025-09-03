@@ -21,17 +21,30 @@ const ProductCard = ({ product }) => {
   // chuyen qua trang chi tiet san pham
   const handleClick = (product) => {
     if (product.categoryName === "Điện thoại") {
-      const valueStorage = toSlug(product?.option.Storage);
-      const valueColor = toSlug(product?.option.Color);
+      const valueStorage = product?.option?.storage;
+      const valueColor = toSlug(product?.option?.color);
       navigate(
         `/iphone-detail/${product?.productSlug}?storage=${valueStorage}&color=${valueColor}`
       );
-    } else if (product.categoryName === "Đồng hồ") {
+    } else if (product.categoryName === "Âm thanh") {
       navigate("/smart-watch-detai");
     } else if (product.categoryName === "Laptop") {
-      navigate("/laptop-detail");
+      const version = product?.option.version;
+      const color = product?.option.color;
+      navigate(
+        `/laptop-detail/${product?.productSlug}?version=${version}&color=${color}`
+      );
+    } else if (product.categoryName === "Đồng hồ") {
+      const version = product?.option?.version;
+      const color = product?.option?.color;
+      navigate(
+        `/smart-watch-detai/${product?.productSlug}?version=${version}&color=${color}`
+      );
     } else {
-      navigate("/tivi-detail");
+      const valueScreen = product?.option?.screenSize;
+      navigate(
+        `/tivi-detail/${product?.productSlug}?screen-size=${valueScreen}`
+      );
     }
   };
   return (

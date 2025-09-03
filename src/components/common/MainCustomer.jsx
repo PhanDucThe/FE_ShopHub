@@ -281,8 +281,8 @@ const MainCustomer = () => {
           <ProductSection
             products={camera}
             icon={faCamera} // hoặc faCameraRetro, faVideo
-            primaryText={"CAMERA"}
-            secondaryText="SÁNG TẠO" // hoặc "CHỤP ẢNH", "KỶ NIỆM"
+            primaryText={"TIVI"}
+            secondaryText="SIÊU MỎNG" // hoặc "CHỤP ẢNH", "KỶ NIỆM"
             iconBgColor="bg-orange-500"
             primaryTextColor="text-orange-600"
             secondaryTextColor="text-gray-900"
